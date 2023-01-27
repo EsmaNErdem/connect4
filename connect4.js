@@ -60,12 +60,12 @@ function makeHtmlBoard() {
 /** findSpotForCol: given column x, return top empty y (null if filled) */
 
 function findSpotForCol(x) {
-  for (let y = 5; y >= 0; y--){
+  for (let y = HEIGHT-1; y >= 0; y--){
     if(board[y][x] === null){
       return y;
     }
   }
-return y = null;
+return null;
 }
 
 /** placeInTable: update DOM to place piece into HTML table of board */
@@ -124,11 +124,7 @@ function handleClick(evt) {
     return endGame("Everybody wins!")
   }
   // switch players
-  if(currPlayer === "red"){
-    currPlayer = "yellow";
-  } else {
-    currPlayer = "red";
-  }
+  currPlayer = currPlayer === "red" ? "yellow" : "red";
   playerDisplay(currPlayer);
   
 }
